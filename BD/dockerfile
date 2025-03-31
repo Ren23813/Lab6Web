@@ -1,0 +1,11 @@
+FROM mariadb:latest
+
+ENV MARIADB_ROOT_PASSWORD=root_password
+ENV MARIADB_DATABASE=lab6db
+ENV MARIADB_USER=ren
+ENV MARIADB_PASSWORD=app_password
+
+COPY init-dblab6.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 3306
+

@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS lab6db;
+
+USE lab6db;
+
+CREATE TABLE IF NOT EXISTS series (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(500) NOT NULL,
+estado VARCHAR(50) NOT NULL,
+total_capitulos INT,
+capitulos_vistos INT NOT NULL,
+puntuacion INT NOT NULL
+);
+
+
+CREATE USER IF NOT EXISTS 'ren'@'%' IDENTIFIED BY 'app_password';
+GRANT ALL PRIVILEGES ON lab6db.* TO 'ren'@'%';
+FLUSH PRIVILEGES;
