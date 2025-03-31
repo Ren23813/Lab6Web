@@ -1,7 +1,7 @@
 API de Series - Documentación
 ==============================
 
-Esta API permite gestionar las series de un usuario, ofreciendo operaciones para listar, crear, obtener, actualizar y eliminar series. Se ha diseñado siguiendo el estándar OpenAPI 3.0.
+Esta API permite gestionar las series de un usuario, ofreciendo operaciones para listar, crear, obtener, actualizar y eliminar series. 
 
 1. Información General
 ----------------------
@@ -26,7 +26,7 @@ Esta API permite gestionar las series de un usuario, ofreciendo operaciones para
 - **POST /series**  
   - **Resumen:** Crear una nueva serie  
   - **Descripción:** Crea una nueva serie y la agrega a la base de datos.  
-  - **Request Body:** Se espera un objeto Serie en formato JSON (según el esquema definido en components).  
+  - **Request Body:** Se espera un objeto Serie en formato JSON.  
   - **Respuesta:**  
     - *201:* Serie creada con éxito, devuelve el objeto creado.  
     - *400:* Datos inválidos.  
@@ -83,4 +83,4 @@ El objeto **Serie** se define con las siguientes propiedades:
 
 Conclusión
 ----------
-Esta API, basada en el estándar OpenAPI 3.0, facilita la gestión de series mediante operaciones CRUD. Su estructura y documentación permiten integrar fácilmente el desarrollo y la conexión con aplicaciones que deseen gestionar información de series de usuario.
+Esta API facilita la gestión de series televisivas mediante operaciones CRUD. Su estructura y documentación permiten integrar fácilmente el desarrollo y la conexión con aplicaciones que deseen gestionar información de opinión de series por parte de sus usuarios.
