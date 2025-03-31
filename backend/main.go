@@ -27,7 +27,7 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"*"},
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type"},
 		AllowCredentials: true,
 	}))
@@ -37,5 +37,9 @@ func main() {
 	r.Get("/api/series/{id}",HandleSerieID)
 	r.Delete("/api/series/{id}",HandleDeleteID)
 	r.Put("/api/series/{id}",HandleEditSerieID)
+	r.Patch("/api/series/{id}/status", HandleStatusPatch)
+	r.Patch("/api/series/{id}/episode",HandleEpisodePatch)
+	r.Patch("/api/series/{id}/upvote", HandleUpvotePatch)
+	r.Patch("/api/series/{id}/downvote", HandleDownvotePatch)
 	http.ListenAndServe(":8080", r)
 }
