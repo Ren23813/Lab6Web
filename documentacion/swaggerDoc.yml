@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  title: API de Series
+  description: API para gestionar las series de un usuario.
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8080/api
+    description: Servidor local de desarrollo
+paths:
+  /series:
+    get:
+      summary: Obtener todas las series
+      description: Obtiene una lista de todas las series registradas.
+      operationId: getSeries
+      responses:
+        '200':
+          description: Lista de series
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Serie'
+        '500':
+          description: Error del servidor
+
+    post:
+      summary: Crear una nueva serie
+      description: Crea una nueva serie y la agrega a la base de datos.
+      operationId: createSerie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Serie'
+      responses:
+        '201':
+          description: Serie creada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Serie'
+        '400':
+          description: Datos inválidos
+        '500':
+          description: Error del servidor
+
+  /series/{id}:
+    get:
+      summary: Obtener una serie por ID
+      description: Obtiene una serie específica mediante su ID.
+      operationId: getSerieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID de la serie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Serie encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Serie'
+        '404':
+          description: Serie no encontrada
+        '500':
+          description: Error del servidor
+
+    put:
+      summary: Actualizar una serie
+      description: Actualiza los detalles de una serie existente.
+      operationId: updateSerie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID de la serie
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Serie'
+      responses:
+        '200':
+          description: Serie actualizada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Serie'
+        '400':
+          description: Datos inválidos
+        '404':
+          description: Serie no encontrada
+        '500':
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar una serie
+      description: Elimina una serie específica por su ID.
+      operationId: deleteSerie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID de la serie
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Serie eliminada con éxito
+        '404':
+          description: Serie no encontrada
+        '500':
+          description: Error del servidor
+
+components:
+  schemas:
+    Serie:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: El ID único de la serie
+        title:
+          type: string
+          description: El nombre de la serie
+        status:
+          type: string
+          description: El género de la serie
+        totalEpisodes:
+          type: integer
+          description: El número total de episodios
+        lastEpisodeWatched:
+          type: integer
+          description: El número del último episodio visto
+        Ranking:
+          type: integer
+          description: Calificación dada a la serie
+      required:
+        - id
+        - title
+        - status
+        - lastEpisodeWatched
+        - Ranking
