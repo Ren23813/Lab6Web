@@ -18,8 +18,9 @@ Y se ejecutará el dockerfile, iniciando así la base de datos en Mariadb.
 
 
 Para correr el **backend**, se deben de ejecutar los siguientes comandos, estando dentro de la carpeta 'backend':
-1. go build 
-2. go run .
+1. `go build` 
+2. `go run .`
+
 Esto se realizó de esta manera, y no con docker, pues fue recomendación del catedrático descargar Go.
 
 Así, el backend escucha a la BD desde el puerto 3306, y envía la señal al 8080, el cual es escuchado por el frontend, tal como pedía las instrucciones. 
