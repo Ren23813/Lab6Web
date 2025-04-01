@@ -8,6 +8,7 @@ import (
     "encoding/json"
 )
 
+//Función para editar una serie. Lee el id de la url, luego accede a esta serie en la BD, entonces, se crea un objeto Serie extraído del front, el cual se descodifica y se sobrepone encima del de la BD. Se actualiza la BD. 
 func HandleEditSerieID(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {

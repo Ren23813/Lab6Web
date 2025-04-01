@@ -8,6 +8,7 @@ import (
     "encoding/json"
 )
 
+//Función que maneja el click del desplegable para cambio de estatus. Recibe el id de la serie, así como su contenido en forma de Serie. Se sobreescribe por encima de la existente con su mismo id y se guarda
 func HandleStatusPatch(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {

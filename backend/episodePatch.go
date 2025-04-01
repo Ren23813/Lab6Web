@@ -7,6 +7,7 @@ import (
     "strconv"
 )
 
+//Función que maneja el click en la casilla de aumento de capítulo en el front. Recibe el id de la url, busca en la BD esa serie y le aumenta en 1 su último capítulo visto previo; luego, se actualiza la BD.
 func HandleEpisodePatch(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {

@@ -7,6 +7,7 @@ import (
     "strconv"
 )
 
+//Función que maneja el click en la flecha hacia arriba de ranking en el front. Recibe el id de la url, busca en la BD esa serie y le aumenta en 1 su ranking previo; se actualiza la BD.
 func HandleUpvotePatch(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {

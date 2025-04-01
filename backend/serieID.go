@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+//Función que maneja el general a una serie en específico. Recibe el id del url y manda a traer la Serie que en la BD tiene exactamente ese id. Devuelve esa Serie. 
 func HandleSerieID(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {

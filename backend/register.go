@@ -4,6 +4,7 @@ import (
 	"net/http"
 )
 
+//Función para manejar el ingreso de una serie. Básicamente, se validan que no hayan datos vacíos, y se ingresan a la BD, según el payload mandado por el frontend
 func HandleRegistration(w http.ResponseWriter, r *http.Request){
 var req Serie
 if err := json.NewDecoder(r.Body).Decode(&req); err!=nil{

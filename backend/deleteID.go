@@ -5,6 +5,7 @@ import (
     "github.com/go-chi/chi/v5"
 )
 
+//Función para manejar la eliminación de una serie. Recibe del url el id específico de la serie a borrar; accede a la BD y borra la serie
 func HandleDeleteID(w http.ResponseWriter, r *http.Request) {
     serieID := chi.URLParam(r, "id")
     if serieID == "" {
